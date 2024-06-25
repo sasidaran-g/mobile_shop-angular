@@ -1,11 +1,12 @@
-<div class="login-container">
+<!-- <div class="login-container">
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="adminblock">
         <a routerLink="admin-login" class="admin"
-        ><i class="fa fa-user-tie"></i>&nbsp;ADMIN</a>
+          ><i class="fa fa-user-tie"></i>&nbsp;ADMIN</a
+        >
       </div>
-      
+
       <div class="col-md-6">
         <div class="card">
           <div class="card-header text-center">
@@ -38,6 +39,23 @@
               </button>
               <div class="text-center mt-3">
                 Need an Account?&nbsp;<a routerLink="signup-form">SIGN UP</a>
+                <div
+                  id="g_id_onload"
+                  data-client_id="518727039166-1v83hb42f5lrqoiskspine75h54beh4m.apps.googleusercontent.com"
+                  data-context="signin"
+                  data-ux_mode="popup"
+                  data-login_uri="http://localhost:5000/login/getLogin"
+                  data-itp_support="true"
+                ></div>
+
+                <div
+                  class="g_id_signin"
+                  data-type="icon"
+                  data-shape="circle"
+                  data-theme="filled_black"
+                  data-text="signup_with"
+                  data-size="large"
+                ></div>
               </div>
             </form>
           </div>
@@ -45,4 +63,24 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<div
+  id="g_id_onload"
+  data-client_id="518727039166-1v83hb42f5lrqoiskspine75h54beh4m.apps.googleusercontent.com"
+  data-context="signin"
+  data-ux_mode="popup"
+  data-login_uri="http://localhost:5000/login/getLogin"
+  data-auto_select="true"
+  data-itp_support="true"
+></div>
+
+<div
+  class="g_id_signin"
+  data-type="standard"
+  data-shape="rectangular"
+  data-theme="filled_black"
+  data-text="signin_with"
+  data-size="large"
+  data-locale="en-GB"
+  data-logo_alignment="left"
+></div>
