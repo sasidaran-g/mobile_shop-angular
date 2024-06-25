@@ -1,0 +1,26 @@
+<h1>ADMIN TABLE</h1>
+<div class="conatainer">
+  <table class="table">
+    <thead>
+      <th>CUSTOMER ID</th>
+      <th>CUSTOMER NAME</th>
+      <th>PHONE NO.</th>
+      <th>VIEW ORDER</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of readData">
+        <td>{{ emp.ID }}</td>
+        <td>{{ emp.Name }}</td>
+        <td>{{ emp.phone_no }}</td>
+        <td>
+          <a [routerLink]="['/admin-view-order', emp.ID]"
+            ><button class="btn btn-warning">order</button></a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="container" id="back" class="mt-3">
+  <a routerLink="/admin"><button class="btn btn-dark">Back</button></a>
+</div>

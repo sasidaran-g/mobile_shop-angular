@@ -1,0 +1,103 @@
+<div class="container">
+  <form [formGroup]="customerform" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="customerid" class="form-label">customer id</label>
+          <input type="number" class="form-control" name="customerid" formControlName="customerid" />
+          <div *ngIf="customerform.get('customerid')?.invalid &&(customerform.get('customerid')?.dirty || customerform.get('customerid')?.touched)" class="text-danger">
+            <span *ngIf="customerform.get('customerid')?.errors?.required">customerid is required.</span>
+            <span *ngIf="customerform.get('customerid')?.errors?.minlength">customerid should be above 2 characters.</span>
+            <span *ngIf="customerform.get('customerid')?.errors?.maxlength">customerid can't be above 5 characters.</span>
+            <span *ngIf="customerform.get('customerid')?.errors?.pattern">Invalid characters.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="customername" class="form-label">customer name</label>
+          <input type="text" class="form-control" name="customername" formControlName="customername" />
+          <div *ngIf="customerform.get('customername')?.invalid &&(customerform.get('customername')?.dirty || customerform.get('customername')?.touched)" class="text-danger">
+            <span *ngIf="customerform.get('customername')?.errors?.required">customername is required.</span>
+            <span *ngIf="customerform.get('customername')?.errors?.minlength">customername should be above 2 characters.</span>
+            <span *ngIf="customerform.get('customername')?.errors?.maxlength">customername can't be above 5 characters.</span>
+            <span *ngIf="customerform.get('customername')?.errors?.pattern">Invalid characters.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="age" class="form-label">age:</label>
+          <input type="number" class="form-control" name="age" formControlName="age" />
+          <div *ngIf="customerform.get('age')?.invalid &&(customerform.get('age')?.dirty || customerform.get('age')?.touched)" class="text-danger">
+            <span *ngIf="customerform.get('age')?.errors?.required">age is required.</span>
+            <span *ngIf="customerform.get('age')?.errors?.minlength">age should be above 2 numbers.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="mobileno" class="form-label">mobile no.</label>
+        <input type="number" class="form-control" formControlName="mobileno" name="mobileno" />
+        <div *ngIf="customerform.get('mobileno')?.invalid &&(customerform.get('mobileno')?.dirty || customerform.get('mobileno')?.touched)" class="text-danger">
+          <span *ngIf="customerform.get('mobileno')?.errors?.required">mobileno is required.</span>
+          <span *ngIf="customerform.get('mobileno')?.errors?.minlength">mobileno should be above 2 characters.</span>
+          <span *ngIf="customerform.get('mobileno')?.errors?.maxlength">mobileno can't be above 5 characters.</span>
+          <span *ngIf="customerform.get('mobileno')?.errors?.pattern">Invalid characters.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="designation" class="form-label">designation</label>
+          <input type="text" class="form-control" name="designation" formControlName="designation" />
+          <div *ngIf="customerform.get('designation')?.invalid &&(customerform.get('designation')?.dirty || customerform.get('designation')?.touched)" class="text-danger">
+            <span *ngIf="customerform.get('designation')?.errors?.required">designation is required.</span>
+            <span *ngIf="customerform.get('designation')?.errors?.minlength">designation should be above 2 characters.</span>
+            <span *ngIf="customerform.get('designation')?.errors?.maxlength">designation can't be above 5 characters.</span>
+            <span *ngIf="customerform.get('designation')?.errors?.pattern">Invalid characters.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="aadharnumber" class="form-label">aadhar number</label>
+          <input type="number" class="form-control" formControlName="aadharnumber" name="aadharnumber" />
+          <div *ngIf="customerform.get('aadharnumber')?.invalid &&(customerform.get('aadharnumber')?.dirty || customerform.get('aadharnumber')?.touched)" class="text-danger">
+            <span *ngIf="customerform.get('aadharnumber')?.errors?.required">aadharnumber is required.</span>
+            <span *ngIf="customerform.get('aadharnumber')?.errors?.minlength">aadharnumber should be above 2 characters.</span>
+            <span *ngIf="customerform.get('aadharnumber')?.errors?.maxlength">aadharnumber can't be above 5 characters.</span>
+            <span *ngIf="customerform.get('aadharnumber')?.errors?.pattern">Invalid characters.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="gender" class="form-label">Gender:</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" formControlName="gender" value="male" />
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" formControlName="gender" value="female" />
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" formControlName="gender" value="others" />
+          <label class="form-check-label" for="others">Others</label>
+        </div>
+        <div *ngIf="customerform.get('gender')?.invalid && (customerform.get('gender')?.dirty || customerform.get('gender')?.touched)" class="text-danger">
+          <span class="text-danger">Gender is required</span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-secondary">
+      Submit
+    </button>
+  </form>
+</div>

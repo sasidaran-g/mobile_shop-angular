@@ -1,0 +1,183 @@
+<h1>ORDER FORM</h1>
+
+<div class="container">
+  <form [formGroup]="orderform">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="customerid" class="form-label">customerid</label>
+          <input type="text" class="form-control" id="customerid" formControlName="customerid" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="category" class="form-label">category</label>
+          <select class="form-select" id="category"  (change)="onCategoryChange($event)" formControlName="category">
+            <option value="" >Select a category</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+        <div *ngIf="orderform.get('category')?.invalid && (orderform.get('category')?.dirty || orderform.get('category')?.touched)" class="text-danger">
+          <span class="text-danger">category is required</span>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <select class="form-select" id="company" (change)="onCompanyChange($event)" formControlName="company">
+              <option value="" >Select a company</option>
+              <option *ngFor="let company of companies" [value]="company">{{ company }}</option>
+          </select>
+          <div *ngIf="orderform.get('company')?.invalid && (orderform.get('company')?.dirty || orderform.get('company')?.touched)" class="text-danger">
+            <span class="text-danger">company is required</span>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <select class="form-select" id="product" (change)="onProductChange($event)" formControlName="product">
+              <option value="" >Select a product</option>
+              <option *ngFor="let product of products" [value]="product">{{ product }}</option>
+          </select>
+          <div *ngIf="orderform.get('product')?.invalid && (orderform.get('product')?.dirty || orderform.get('product')?.touched)" class="text-danger">
+            <span class="text-danger">product is required</span>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="productid" class="form-label">product id</label>
+            <input type="text" class="form-control" name="productid" formControlName="productid" />
+            <div *ngIf="orderform.get('productid')?.invalid &&(orderform.get('productid')?.dirty || orderform.get('productid')?.touched)">
+              <span class="text-danger">productid is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="modalnumber" class="form-label">modal number</label>
+            <input type="text" class="form-control" name="modalnumber" formControlName="modalnumber" />
+            <div *ngIf="orderform.get('modalnumber')?.invalid &&(orderform.get('modalnumber')?.dirty || orderform.get('modalnumber')?.touched)">
+              <span class="text-danger">modalnumber is required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="productprice" class="form-label">product price</label>
+            <input type="text" class="form-control" name="productprice" formControlName="productprice" />
+            <div *ngIf="orderform.get('productprice')?.invalid &&(orderform.get('productprice')?.dirty || orderform.get('productprice')?.touched)">
+              <span class="text-danger">productprice is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="quantity" class="form-label">quantity</label>
+            <input type="text" class="form-control" id="quantity" value="1" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="cgst" class="form-label">cgst</label>
+            <input type="number" class="form-control" name="cgst" formControlName="cgst" />
+            <div *ngIf="orderform.get('cgst')?.invalid &&(orderform.get('cgst')?.dirty || orderform.get('cgst')?.touched)">
+              <span class="text-danger">cgst is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="sgst" class="form-label">sgst</label>
+            <input type="number" class="form-control" name="sgst" formControlName="sgst" />
+            <div *ngIf="orderform.get('sgst')?.invalid &&(orderform.get('sgst')?.dirty || orderform.get('sgst')?.touched)">
+              <span class="text-danger">sgst is required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-6">
+         <div class="mb-3">
+          <label for="taxpercentage" class="form-label">Tax (in %)</label>
+          <input type="number" class="form-control" name="taxpercentage" formControlName="taxpercentage" />
+          <div *ngIf="orderform.get('taxpercentage')?.invalid &&(orderform.get('taxpercentage')?.dirty || orderform.get('taxpercentage')?.touched)">
+            <span class="text-danger">taxpercentage is required</span>
+          </div>
+         </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="totalamount" class="form-label">totalamount</label>
+            <input type="text" class="form-control" name="totalamount" formControlName="totalamount" />
+            <div *ngIf="orderform.get('totalamount')?.invalid &&(orderform.get('totalamount')?.dirty || orderform.get('totalamount')?.touched)">
+              <span class="text-danger">totalamount is required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="payment" class="form-label">Payment Method</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="payment" formControlName="payment" value="gpay" />
+            <label class="form-check-label" for="gpay">Gpay</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="payment" formControlName="payment" value="paytm" />
+            <label class="form-check-label" for="paytm">Paytm</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="payment" formControlName="payment" value="netbanking" />
+            <label class="form-check-label" for="netbanking">Net Banking</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="payment" formControlName="payment" value="cashondelivary" />
+            <label class="form-check-label" for="cashondelivary">Cash on Delivery</label>
+          </div>
+          <div *ngIf="orderform.get('payment')?.invalid && (orderform.get('payment')?.dirty || orderform.get('payment')?.touched)" class="text-danger">
+            <span class="text-danger">payment is required</span>
+          </div>
+        </div>
+          <div class="col-md-6" *ngIf="isNetBanking">
+            <label for="bank" class="form-label">Select Bank</label>
+            <select class="form-control" formControlName="bank">
+              <option value="" disabled>Select your bank</option>
+              <option value="indian_bank">Indian Bank</option>
+              <option value="state_bank">State Bank</option>
+              <option value="canara_bank">Canara Bank</option>
+            </select>
+          </div>
+        </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mb-3">
+          <button type="button" class="btn btn-secondary" (click)="onAdd()">ADD</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <button type="button" class="btn btn-primary" (click)="onSubmit()">SUBMIT</button>
+        </div>
+      </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <a routerLink="/customer-table"><button type="button" class="btn btn-dark">BACK</button></a>
+          </div>
+      </div>
+    </div>
+  </form>
+</div>

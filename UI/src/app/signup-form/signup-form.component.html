@@ -1,0 +1,55 @@
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <form (ngSubmit)="onSubmit()">
+        <h1 class="formh1">REGISTRATION FORM</h1>
+        <br />
+        <br />
+
+        <div class="inputbox">
+          <i class="fa fa-user-tie"></i>
+          <input type="text" name="username" [(ngModel)]="username" placeholder="your name" />
+          <!-- <label for="username">username</label> -->
+        </div>
+
+        <br />
+        <br />
+
+        <div class="inputbox">
+          <i class="fa fa-birthday-cake"></i>
+          <input type="text" name="age" [(ngModel)]="age" placeholder="your age" />
+          <!-- <label for="age">age</label> -->
+        </div>
+
+        <br />
+        <br />
+
+        <div class="inputbox">
+          <i class="fa fa-venus-mars"></i>
+          <input type="text" name="gender" [(ngModel)]="gender" placeholder="your gender" />
+          <!-- <label for="gender">gender</label> -->
+        </div>
+        <br />
+        <br />
+
+        <div class="inputbox">
+          <i class="fa fa-envelope"></i>
+          <input type="email" name="email" [(ngModel)]="email" placeholder="your email" />
+          <!-- <label for="email">email</label> -->
+        </div>
+        <br />
+        <br />
+
+        <div class="inputbox">
+          <i class="fa fa-lock"></i>
+          <input type="password" name="password" [(ngModel)]="password" placeholder="your password" />
+          <!-- <label for="password">password</label> -->
+        </div>
+        <br />
+        <br />
+
+        <button type="submit">SIGN UP</button>
+      </form>
+    </div>
+  </div>
+</section>

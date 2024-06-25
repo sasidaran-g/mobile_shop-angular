@@ -1,0 +1,80 @@
+<h1>ADMIN VIEW ORDER</h1>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>ORDER ID</th>
+        <th>CUSTOMER ID</th>
+        <th>QUANTITY</th>
+        <th>TOTAL AMOUNT</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of readData" [ngStyle]="getRowStyle(emp.status)">
+        <td>{{ emp.Order_ID }}</td>
+        <td>{{ emp.customer_id }}</td>
+        <td>{{ emp.Quantity }}</td>
+        <td>{{ emp.Total_Amount }}</td>
+        <td>
+          <label>{{ emp.status }}</label>
+          &nbsp;
+          <i
+            class="fas fa-edit"
+            data-bs-toggle="modal"
+            data-bs-target="#labelStatusModal"
+            (click)="setOrderId(emp.Order_ID)"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br />
+<br />
+
+<div class="container" id="back" class="mt-3">
+  <a routerLink="/admin"><button class="btn btn-dark">Back</button></a>
+</div>
+<!-- ORDER ITEMS MODAL -->
+<div class="modal fade" id="labelStatusModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: yellowgreen">LABEL STATUS</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="labelform">
+          <select
+            class="form-select form-select-lg mb-3"
+            formControlName="labelmenu"
+          >
+            <option value="">Open this select menu</option>
+            <option value="processing">Processing</option>
+            <option value="delivered">Delivered</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+          <br />
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="labelStatus()"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="close" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

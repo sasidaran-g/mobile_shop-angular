@@ -1,0 +1,122 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url("/assets/Images/signup.avif") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.form-box {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.inputbox {
+  position: relative;
+  max-width: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #fff;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  // transform: translateY(-50%);
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.5s;
+}
+
+input:focus ~ label,
+input:focus ~ :valid {
+  top: -5px;
+}
+
+.inputbox input {
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0 35px 0 5px;
+  color: #fff;
+}
+
+.inputbox i {
+  right: 8px;
+  position: absolute;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.forget {
+  font-size: 1rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.register {
+  font-size: 1rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.register a {
+  text-decoration: none;
+  color: blue;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.register {
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  margin: 15px 0 10px;
+}
+
+.register p a {
+  color: #fff;
+  font-weight: 600;
+}
+
+.register p a:hover {
+  color: blue;
+}

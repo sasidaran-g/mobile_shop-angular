@@ -1,0 +1,113 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+.login-container {
+  background-image: url("/assets/Images/example.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw; // Add this line to ensure the background covers the full width
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  .card-header {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+
+    h3 {
+      margin: 0;
+      color: blue;
+    }
+  }
+
+  .card-body {
+    padding: 30px;
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        border: none;
+        outline: none;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: blue;
+          outline: none;
+        }
+      }
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: blue;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darkblue;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .text-center {
+      margin-top: 20px;
+      font-size: 14px;
+
+      a {
+        color: blue;
+        text-decoration: underline;
+        transition: color 0.3s;
+
+        &:hover {
+          color: darkblue;
+        }
+      }
+    }
+  }
+}
+
+.admin {
+  text-align: right;
+  color: #ffff99;
+  font-size: 25px;
+  text-decoration: none;
+  margin-top: 25px;
+  float: right;
+  background-color: #333;
+  padding: 7px;
+  border-radius: 8px;
+}

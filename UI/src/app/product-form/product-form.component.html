@@ -1,0 +1,92 @@
+<div class="container">
+  <form [formGroup]="productform" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="productid" class="form-label">product id</label>
+          <input type="text" class="form-control" name="productid" formControlName="productid" />
+          <div *ngIf="productform.get('productid')?.invalid &&(productform.get('productid')?.dirty || productform.get('productid')?.touched)">
+            <span *ngIf="productform.get('productid')?.errors?.required">productid is required.</span>
+            <span *ngIf="productform.get('productid')?.errors?.minlength">productid should be above 2 characters.</span>
+            <span *ngIf="productform.get('productid')?.errors?.maxlength">productid can't be above 5 characters.</span>
+            <span *ngIf="productform.get('productid')?.errors?.pattern">Invalid characters.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="productname" class="form-label">product name</label>
+          <input type="text" class="form-control" name="productname" formControlName="productname"/>
+          <div *ngIf="productform.get('productname')?.invalid &&(productform.get('productname')?.dirty || productform.get('productname')?.touched)">
+            <span *ngIf="productform.get('productname')?.errors?.required">productname is required.</span>
+            <span *ngIf="productform.get('productname')?.errors?.minlength">productname should be above 2 characters.</span>
+            <span *ngIf="productform.get('productname')?.errors?.maxlength">productname can't be above 5 characters.</span>
+            <span *ngIf="productform.get('productname')?.errors?.pattern">Invalid characters.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="modalnumber" class="form-label">modal number</label>
+            <input type="text" class="form-control" name="modalnumber" formControlName="modalnumber"/>
+            <div *ngIf="productform.get('modalnumber')?.invalid &&(productform.get('modalnumber')?.dirty || productform.get('modalnumber')?.touched)">
+                <span *ngIf="productform.get('modalnumber')?.errors?.required">modalnumber is required.</span>
+            <span *ngIf="productform.get('modalnumber')?.errors?.minlength">modalnumber should be above 2 characters.</span>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="productprice" class="form-label">product price</label>
+          <input type="number" class="form-control" name="productprice" formControlName="productprice"/>
+          <div *ngIf="productform.get('productprice')?.invalid &&(productform.get('productprice')?.dirty || productform.get('productprice')?.touched)">
+            <span class="text-danger">productprice is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="quantity" class="form-label">quantity</label>
+            <input type="number" class="form-control" name="quantity" formControlName="quantity"/>
+            <div *ngIf="productform.get('quantity')?.invalid &&(productform.get('quantity')?.dirty || productform.get('quantity')?.touched)">
+                <span class="text-danger">quantity is required</span>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="taxpercentage" class="form-label">Tax (in %)</label>
+          <input type="number" class="form-control" name="taxpercentage" formControlName="taxpercentage"/>
+          <div *ngIf="productform.get('taxpercentage')?.invalid &&(productform.get('taxpercentage')?.dirty || productform.get('taxpercentage')?.touched)">
+            <span class="text-danger">taxpercentage is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="companyid" class="form-label">companyid</label>
+            <input type="text" class="form-control" name="companyid" formControlName="companyid"/>
+            <div *ngIf="productform.get('companyid')?.invalid &&(productform.get('companyid')?.dirty || productform.get('companyid')?.touched)">
+                <span class="text-danger">companyid is required</span>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="companyname" class="form-label">companyname</label>
+          <input type="text" class="form-control" name="companyname" formControlName="companyname"/>
+          <div *ngIf="productform.get('companyname')?.invalid &&(productform.get('companyname')?.dirty || productform.get('companyname')?.touched)">
+            <span class="text-danger">companyname is required</span>
+          </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">
+      Submit
+    </button>
+  </form>
+</div>

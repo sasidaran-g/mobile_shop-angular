@@ -1,0 +1,134 @@
+// Define variables for colors and spacing
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$danger-color: #dc3545;
+$success-color: #28a745;
+$font-family: "Arial, sans-serif";
+$spacing: 1rem;
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2 * $spacing;
+  font-family: $font-family;
+}
+
+form {
+  background-color: #f9f9f9;
+  padding: 2 * $spacing;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $spacing;
+
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 $spacing;
+  }
+
+  .col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding: 0 $spacing;
+  }
+}
+
+.mb-3 {
+  margin-bottom: $spacing;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control,
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: $primary-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+}
+
+.text-danger {
+  font-size: 0.875rem;
+}
+
+button {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: $font-family;
+
+  &.btn-secondary {
+    background-color: $secondary-color;
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+
+  &.btn-primary {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  &.btn-dark {
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background-color: darken(#343a40, 10%);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .col-md-6,
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .container {
+    padding: 0.5 * $spacing;
+  }
+
+  form {
+    padding: $spacing;
+  }
+}

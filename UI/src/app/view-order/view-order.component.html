@@ -1,0 +1,34 @@
+<h1>ORDER TABLE</h1>
+
+<table class="table">
+  <thead>
+    <th>ORDER ID</th>
+    <th>QUANTITY</th>
+    <th>TOTAL AMOUNT</th>
+    <th>STATUS</th>
+    <th>ORDER DETIALS</th>
+    <th>TRACK PACAKAGE</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of readData">
+      <td>{{ emp.Order_ID }}</td>
+      <td>{{ emp.Quantity }}</td>
+      <td>{{ emp.Total_Amount }}</td>
+      <td>{{ emp.status }}</td>
+      <td>
+        <a [routerLink]="['/view-order-detials', emp.Order_ID]"
+          ><button class="btn btn-secondary">ORDER DETIALS</button></a
+        >
+      </td>
+      <td>
+        <a [routerLink]="['/track-pacakage', emp.Order_ID, emp.status]"
+          ><button class="btn btn-info">TRACK</button></a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<a routerLink="/customer-table"
+  ><button type="button" class="btn btn-warning">BACK TO TABLE</button></a
+>

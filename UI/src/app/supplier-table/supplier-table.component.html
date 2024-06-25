@@ -1,0 +1,28 @@
+<h1>SUPPLIER TABLE</h1>
+<div class="conatainer">
+  <table class="table" id="supplier_table">
+    <thead>
+      <th>SUPPLIER ID</th>
+      <th>SUPPLIER NAME</th>
+      <!-- <th>PHONE NO.</th> -->
+      <th>PRODUCT NAME</th>
+      <th>PRICE PER EACH</th>
+      <th>QUANTITY</th>
+      <th>TOTAL AMOUNT</th>
+    </thead>
+    <tbody id="supplier_table_body">
+      <tr *ngFor="let emp of readData">
+        <td>{{ emp.supplier_ID }}</td>
+        <td>{{ emp.supplier_Name }}</td>
+        <td>{{ emp.Product_Name }}</td>
+        <td>{{ emp.Price_per_each }}</td>
+        <td>{{ emp.Quantity }}</td>
+        <td>{{ emp.Total_Amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" id="back" class="mt-3">
+  <a routerLink="/supplier"><button class="btn btn-dark">Back</button></a>
+</div>

@@ -1,0 +1,70 @@
+<div class="container">
+    <form [formGroup]="supplierform" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="supplierid" class="form-label">supplier id</label>
+            <input type="number" class="form-control" name="supplierid" formControlName="supplierid" />
+            <div *ngIf="supplierform.get('supplierid')?.invalid &&(supplierform.get('supplierid')?.dirty || supplierform.get('supplierid')?.touched)">
+                <span class="text-danger">supplierid is required</span>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="suppliername" class="form-label">supplier name</label>
+            <input type="text" class="form-control" name="suppliername" formControlName="suppliername" />
+            <div *ngIf="supplierform.get('suppliername')?.invalid &&(supplierform.get('suppliername')?.dirty || supplierform.get('suppliername')?.touched)">
+                <span class="text-danger">suppliername is required</span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="phoneno" class="form-label">phone no.</label>
+            <input type="number" class="form-control" name="phoneno" formControlName="phoneno" />
+            <div *ngIf="supplierform.get('phoneno')?.invalid &&(supplierform.get('phoneno')?.dirty || supplierform.get('phoneno')?.touched)">
+                <span class="text-danger">phoneno is required</span>
+              </div>
+          </div>
+          </div>
+        
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="productname" class="form-label">product name</label>
+            <input type="text" class="form-control" name="productname" formControlName="productname" />
+            <div *ngIf="supplierform.get('productname')?.invalid &&(supplierform.get('productname')?.dirty || supplierform.get('productname')?.touched)">
+                <span class="text-danger">productname is required</span>
+              </div>
+          </div>
+          </div>
+        </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="pricepereach" class="form-label">price per each</label>
+            <input type="number" class="form-control" name="pricepereach" formControlName="pricepereach" />
+            <div *ngIf="supplierform.get('pricepereach')?.invalid &&(supplierform.get('pricepereach')?.dirty || supplierform.get('pricepereach')?.touched)">
+                <span class="text-danger">pricepereach is required</span>
+              </div>
+          </div>
+          </div>
+        
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="quantity" class="form-label">quantity</label>
+            <input type="number" class="form-control" name="quantity" formControlName="quantity" />
+            <div *ngIf="supplierform.get('quantity')?.invalid &&(supplierform.get('quantity')?.dirty || supplierform.get('quantity')?.touched)">
+                <span class="text-danger">quantity is required</span>
+              </div>
+          </div>
+          </div> 
+      </div> 
+      <button type="submit" class="btn btn-secondary">
+        Submit
+      </button>
+    </form>
+  </div>

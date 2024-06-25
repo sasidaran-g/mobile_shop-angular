@@ -1,0 +1,25 @@
+<div class="img-container">
+  <h1>ADMIN PAGE</h1>
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+      <h2>Login</h2>
+      <br>
+      <div class="input-group">
+        <i class="fa fa-envelope"></i>
+        <input type="text" name="email" [(ngModel)]="email" required />
+        <label for="email">email</label>
+      </div>
+      <br />
+      <br />
+      <div class="input-group">
+        <i class="fa fa-lock"></i>
+        <input type="password" name="password" [(ngModel)]="password" required />
+        <label for="password">Password</label>
+      </div>
+      <br />
+      <br />
+      <button type="submit">Login</button>
+      <p>Admin Registration?&nbsp;<a routerLink="admin-register">register here</a></p>
+    </form>
+  </div>
+</div>

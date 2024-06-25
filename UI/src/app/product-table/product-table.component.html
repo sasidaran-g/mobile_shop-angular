@@ -1,0 +1,30 @@
+<h1>PRODUCT TABLE</h1>
+<div class="conatainer">
+  <table class="table">
+    <thead>
+      <th>PRODUCT ID</th>
+      <th>PRODUCT NAME</th>
+      <th>PRODUCT PRICE</th>
+      <th>TAX (in %)</th>
+      <th>CGST(%)</th>
+      <th>SGST(%)</th>
+      <th>QUANTITY</th>
+      <th>TOTAL AMOUNT</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of readData">
+        <td>{{ emp.Product_ID }}</td>
+        <td>{{ emp.Product_Name }}</td>
+        <td>{{ emp.Product_Price }}</td>
+        <td>{{ emp.Tax }}</td>
+        <td>{{ emp.CGST }}</td>
+        <td>{{ emp.SGST }}</td>
+        <td>{{ emp.Quantity }}</td>
+        <td>{{ emp.Total_Amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="container" id="back" class="mt-3">
+  <a routerLink="/product"><button class="btn btn-dark">Back</button></a>
+</div>

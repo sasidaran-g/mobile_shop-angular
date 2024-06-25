@@ -1,0 +1,37 @@
+<!-- ORDER ITEMS TABLE -->
+
+<h1>ORDER DETIALS</h1>
+
+<table class="table">
+  <thead>
+    <th>ORDER ITEM ID</th>
+    <th>PRODUCT ID</th>
+    <th>PRODUCT NAME</th>
+    <th>PRODUCT PRICE</th>
+    <th>TAX(%)</th>
+    <th>CGST</th>
+    <th>SGST</th>
+    <th>QUANTITY</th>
+    <th>TOTAL AMOUNT</th>
+  </thead>
+  <tbody id="order_items_table_body">
+    <tr *ngFor="let emp of readData">
+      <td>{{ emp.Order_Item_ID }}</td>
+      <td>{{ emp.Product_id }}</td>
+      <td>{{ emp.Product_name }}</td>
+      <td>{{ emp.Product_Price }}</td>
+      <td>{{ emp.Tax }}</td>
+      <td>{{ emp.CGST }}</td>
+      <td>{{ emp.SGST }}</td>
+      <td>{{ emp.Quantity }}</td>
+      <td>{{ emp.Total_Amount }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<br />
+
+<a routerLink="/customer-table"
+  ><button type="button" class="btn btn-info">BACK TO ORDER TABLE</button></a
+>

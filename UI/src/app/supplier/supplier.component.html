@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <a
+    ><button
+      type="button"
+      class="btn btn-success mt-2"
+      data-bs-toggle="modal"
+      data-bs-target="#supplier_modal"
+    >
+      SUPPLIER
+    </button></a
+  >&nbsp;
+
+  <a routerLink="supplier-table"
+    ><button type="button" class="btn btn-warning mt-2 ml-2">TABLE</button></a
+  >
+</div>
+<div class="container" id="back" class="mt-3">
+  <a routerLink=""><button class="btn btn-dark">Back</button></a>
+</div>
+
+<!-- SUPPLIER MODAL -->
+<div class="modal fade" id="supplier_modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: yellowgreen">SUPPLIER</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body"><app-supplier-form></app-supplier-form></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="loadsupplierTable"></div>
