@@ -47,7 +47,7 @@ exports.deliverInvoice =
   "insert into deliver_invoice (customer_id,quantity,Total_Amount,status,order_id ) VALUES (?,?,?,?,?)";
 exports.getDeliverData = "SELECT * FROM `deliver_invoice`";
 /////////////////////////////--------------------LOGIN-------------------///////////////////////////
-exports.loginQuery = "SELECT * FROM users WHERE email= ? AND password= ?";
+// exports.loginQuery = "SELECT * FROM users WHERE email= ? AND password= ?";
 exports.registerQuery = "INSERT INTO users (name,age,gender,email,password) VALUES (?,?,?,?,?)";
 /////////////////////////////--------------------ADMIN REGISTER-----------///////////////////////////
 exports.loginAdminQuery = "SELECT * FROM admin WHERE email= ? AND password= ?";

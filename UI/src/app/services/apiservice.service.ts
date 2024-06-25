@@ -91,9 +91,9 @@ export class ApiserviceService {
   }
 
   ////////////////////////////----------------LOGIN---------------////////////////////////////
-  loginCheck(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.LoginUrl}/getLogin`, { email, password });
-  }
+  // loginCheck(email: string, password: string): Observable<any> {
+    // return this.http.post(`${this.LoginUrl}/getLogin`, { email, password });
+  // }
   registerCheck(name:string,age:string,gender:string,email: string, password: string): Observable<any> {
     return this.http.post(`${this.LoginUrl}/register`, { name,age,gender, email, password });
   }
