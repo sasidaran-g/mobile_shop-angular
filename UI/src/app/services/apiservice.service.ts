@@ -94,6 +94,11 @@ export class ApiserviceService {
   // loginCheck(email: string, password: string): Observable<any> {
     // return this.http.post(`${this.LoginUrl}/getLogin`, { email, password });
   // }
+   userLogin(data:any): Observable<any> {
+    const headers = data;
+    return this.http.get(`${this.LoginUrl}/userLogin`, { 'headers': headers });
+  }
+
   registerCheck(name:string,age:string,gender:string,email: string, password: string): Observable<any> {
     return this.http.post(`${this.LoginUrl}/register`, { name,age,gender, email, password });
   }

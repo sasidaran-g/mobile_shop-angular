@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from '../services/apiservice.service';
 import { Router } from '@angular/router';
+import {
+  GoogleLoginProvider,
+  SocialAuthService,
+} from '@abacritt/angularx-social-login';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
@@ -8,33 +13,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-  // email: string = '';
-  // password: string = '';
-  constructor(private service: ApiserviceService, private route: Router) {}
+  public invalidUser: any = false;
+  public loginUserId:any;
+  constructor(private service: ApiserviceService, private authService:SocialAuthService, private router:Router) {}
 
   ngOnInit(): void {}
-  // onSubmit(): void {
-  //   console.log(this.email);
-  //   console.log(this.password);
-  //   this.service.loginCheck(this.email, this.password).subscribe(
-  //     (response) => {
-  //       if (response.user) {
-  //         alert('Login Successfully!');
-  //         console.log('response from server(login)', response);
-  //         this.route.navigate(['/firstpage']);
-  //       } else {
-  //         alert('Invalid Detials!!!');
-  //       }
-  //     },
-  //     (error) => {
-  //       alert('Invalid credentials');
-  //       console.log('error in login', error);
-  //       this.resetlogin();
-  //     }
-  //   );
-  // }
-  // resetlogin() {
-  //   this.email = '';
-  //   this.password = '';
-  // }
+  googleLogin(){
+    return from(this.authService.signIn(GoogleLoginProvider.PROVIDER_ID));
+  }
+  logInGoogle(){
+    this.googleLogin().subscribe(user=>{
+      let payload = {
+        emailId: user.email
+      }
+      this.service.userLogin(payload).subscribe(res=>{
+        const { status, data } = res;
+        this.loginUserId=data.userId;
+        {
+          if (status === 'success') {
+            this.invalidUser = false;
+            localStorage.setItem('myToken', user.authToken);
+            localStorage.setItem('emailId', data.emailId);
+            localStorage.setItem('currentApp','onlineshop');
+            this.router.navigate(['/firstpage']);
+          } else {
+            this.invalidUser = true;
+            alert('Error!! :-)\n\n ' + data);
+          }
+        }
+      });
+    });
+  }
 }
