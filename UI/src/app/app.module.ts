@@ -30,6 +30,11 @@ import { TrackPacakageComponent } from './track-pacakage/track-pacakage.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { GoogleLoginProvider } from 'angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -66,8 +71,24 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     FormsModule,
     BrowserAnimationsModule,
     MatProgressBarModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '518727039166-1v83hb42f5lrqoiskspine75h54beh4m.apps.googleusercontent.com'
+            ),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

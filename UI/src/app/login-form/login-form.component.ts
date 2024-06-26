@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from '../services/apiservice.service';
 import { Router } from '@angular/router';
-// import {
-//   GoogleLoginProvider,
-//   SocialAuthService,
-// } from '@abacritt/angularx-social-login';
+import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 import { from } from 'rxjs';
-import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login-form',
@@ -17,38 +13,32 @@ export class LoginFormComponent implements OnInit {
   public invalidUser: any = false;
   public loginUserId: any;
   constructor(
-    private service: ApiserviceService,
     private authService: SocialAuthService,
-    private router: Router
+    private router: Router,
+    private service: ApiserviceService
   ) {}
 
   ngOnInit(): void {}
+
   googleLogin() {
     return from(this.authService.signIn(GoogleLoginProvider.PROVIDER_ID));
   }
-  logInGoogle() {
+
+  logInGoogle(): void {
     this.googleLogin().subscribe((user) => {
+      console.log(user);
       let payload = {
         emailId: user.email,
       };
       console.log(payload);
-      this.service.userLogin(payload).subscribe((res) => {
-        const { status, data } = res;
-        this.loginUserId = data.userId;
-        console.log(this.loginUserId);
-        {
-          if (status === 'success') {
-            this.invalidUser = false;
-            localStorage.setItem('myToken', user.authToken);
-            localStorage.setItem('emailId', data.emailId);
-            localStorage.setItem('currentApp', 'onlineshop');
-            this.router.navigate(['/firstpage']);
-          } else {
-            this.invalidUser = true;
-            alert('Error!! :-)\n\n ' + data);
-          }
+      this.service.userLogin(payload).subscribe(
+        (res) => {
+          console.log('res', res);
+        },
+        (error) => {
+          console.log('error', error);
         }
-      });
+      );
     });
   }
 }

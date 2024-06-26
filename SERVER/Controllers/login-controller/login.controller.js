@@ -3,6 +3,7 @@ const db = require("../../db");
 
 exports.userLogin = (req, res) => {
   var data = req.headers.emailid;
+  console.log(data);
   db.query(Query.loginQuery, [data], (err, result) => {
     if (err) {
       console.log("req", req);
