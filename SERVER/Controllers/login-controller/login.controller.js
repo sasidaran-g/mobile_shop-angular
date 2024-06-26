@@ -1,22 +1,22 @@
 const Query = require("../../Queries/queries");
 const db = require("../../db");
 
-// exports.getLogin = (req, res) => {
-//   const { email, password } = req.body;
-//   db.query(Query.loginQuery, [email, password], (err, result) => {
-//     if (err) {
-//       console.log("err", err);
-//       send500Error(res, "error");
-//     } else {
-//       console.log("result-->", result);
-//       if (result.length > 0) {
-//         res.send({ message: "Login Succesfully!!!", user: result[0] });
-//       } else {
-//         res.status(401).send({ message: "Invalid Detials!" });
-//       }
-//     }
-//   });
-// };
+exports.userLogin = (req, res) => {
+  var data = req.headers.emailid;
+  db.query(Query.loginQuery, [data], (err, result) => {
+    if (err) {
+      console.log("req", req);
+      console.log("data", data);
+      console.log("err", err);
+      send500Error(res, "error");
+    } else {
+      console.log("req====>>>", req);
+      console.log("data===>>>", data);
+      console.log("err====>>>", err);
+      res.send({ message: "login Successfully!!!" });
+    }
+  });
+};
 
 exports.register = (req, res) => {
   const { name, age, gender, email, password } = req.body;
