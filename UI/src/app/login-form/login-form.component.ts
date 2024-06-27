@@ -19,26 +19,4 @@ export class LoginFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
-  googleLogin() {
-    return from(this.authService.signIn(GoogleLoginProvider.PROVIDER_ID));
-  }
-
-  logInGoogle(): void {
-    this.googleLogin().subscribe((user) => {
-      console.log(user);
-      let payload = {
-        emailId: user.email,
-      };
-      console.log(payload);
-      this.service.userLogin(payload).subscribe(
-        (res) => {
-          console.log('res', res);
-        },
-        (error) => {
-          console.log('error', error);
-        }
-      );
-    });
-  }
 }
